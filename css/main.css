@@ -1,0 +1,254 @@
+/*
+    blue, purple, sky, soft brown, brown
+    #1e19cc, 403d99, 0080ff, ff9f40, cc5514
+*/
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    background: url('../img/grid.png'), url('../img/tilenoise.png');
+    background-attachment: fixed;
+    background-color: #fff1aa;
+    /*fff8d6*/
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: #9390ff;
+}
+
+header#name-banner a {
+    padding: 10px;
+}
+
+em {
+    font-size: large;
+    font-weight: 400;
+    color: #ffec90;
+}
+
+strong {
+    font-size: large;
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #ffec90;
+}
+
+blockquote {
+    font-size: large;
+    font-family: sans-serif;
+    font-style: italic;
+    text-align: justify;
+    hyphens: auto;
+    border-left: 2px solid white;
+    margin: 10px 40px;
+    padding: 4px 10px;
+}
+cite{
+    display: block;
+    font-size:smaller;
+    font-style: normal;
+    padding-top: 0.5em;
+}
+cite:before{
+    content: '\2015';
+}
+
+body {
+    height: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #ddd;
+}
+
+header#name-banner {
+    /*    min-height: 2.5em;*/
+    width: 100%;
+    max-width: inherit;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #000;
+    color: #aaa;
+    z-index: 100;
+}
+
+ul.social {
+    padding: 0;
+    line-height: 1.5em;
+    margin-top: 1.25em;
+}
+
+ul.social li {
+    display: inline;
+}
+
+#descriptions {
+    height: 100%;
+}
+
+#descriptions article {
+    min-height: 100%;
+    padding: 15em 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#descriptions article:nth-of-type(2n) {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#intro {
+    display: flex;
+    align-items: center;
+}
+
+ul.projectgrid {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.projectgrid > li {
+    width: 260px;
+    height: 300px;
+    margin: 10px;
+    padding: 0 20px;
+    background-size: 260px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #000;
+    background-clip: padding-box;
+    border-radius: 0% 0% 25% 10%;
+    overflow: hidden;
+}
+
+.projectgrid li h1 {
+    /*    background-color: #000;*/
+    text-align: center;
+    margin-top: 0.4em;
+}
+
+span#whichknauft {
+    display: block;
+    float: right;
+    color: #0080ff;
+}
+
+@keyframes slidein {
+    from {
+        top: calc(var(--yoff)*1px);
+        left: -2em;
+    }
+    to {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.rollup {
+    position: relative;
+    /*    animation: slidein calc(var(--yoff)*1ms) ease-in-out, spin calc(var(--yoff)*1ms) linear;*/
+}
+
+#facepic {
+    height: 10em;
+    margin-right: 30px;
+}
+
+.resume {
+    position: relative;
+    float: left;
+    top: 1.3em;
+    flex: 0 0 260px;
+    /*grow shrink basis*/
+    width: 260px;
+    background-color: #0078c8;
+    padding: 2.75em 5px 10px 40px;
+    margin: 0 20px 0 10px;
+    font-size: smaller;
+}
+
+.resume::before {
+    position: absolute;
+    top: 0;
+    /*    padding:0.3em;*/
+    line-height: 2em;
+    left: 0;
+    right: 0;
+    background-color: #00243b;
+    content: 'Resume (exc.)';
+    text-align: center;
+}
+
+.resume-entry {
+    text-indent: -35px;
+}
+
+.resume .year {
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    padding-right: 3px;
+    margin-right: 5px;
+}
+
+.pullback {
+    text-indent: -35px;
+}
+
+.resume .title {
+    font-variant: small-caps;
+    font-size: larger;
+}
+
+.resume .location {
+    font-style: italic;
+}
+
+.resume .description {}
+
+div.flex {
+    display: flex;
+    align-items: flex-start;
+    /*    flex-wrap: wrap;*/
+}
+
+.gr_grid_container {
+    /* customize grid container div here. eg: width: 500px; */
+}
+
+.gr_grid_book_container {
+    /* customize book cover container div here */
+    float: left;
+    width: 39px;
+    height: 60px;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+.projectentry {
+    height:250px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+
+.uline {
+    text-decoration: underline;
+}
