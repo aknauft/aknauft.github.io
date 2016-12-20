@@ -1,70 +1,38 @@
-/*
-    blue, purple, sky, soft brown, brown
-    #1e19cc, 403d99, 0080ff, ff9f40, cc5514
-*/
-
 html {
+    --bcolor: rgb(39, 55, 71);
+    --bcolora: rgba(39, 55, 71,0.8);
+    --acolor: rgb(255, 236, 144) ;
+    
+    --s1color: rgba(0, 0, 0, 0.8);
+    --s2color: rgba(0, 0, 0, 0.6);
+    --tcolor: #ddd;
+    --htcolor: #ddd;
+
+    --rhcolor: #002034;
+    --rbcolor: #0078c8;
+    
+    --bwidth: 260;
+    --bheight: 300;
+    
     box-sizing: border-box;
     height: 100%;
     background: url('../img/grid.png'), url('../img/tilenoise.png');
     background-attachment: fixed;
-    background-color: #fff1aa;
-    /*fff8d6*/
+    background-color: var(--bcolor);
 }
 
-*,
-*:before,
-*:after {
+*,*:before,*:after {
     box-sizing: inherit;
-}
-
-a {
-    color: #9390ff;
-}
-
-header#name-banner a {
-    padding: 10px;
-}
-
-em {
-    font-size: large;
-    font-weight: 400;
-    color: #ffec90;
-}
-
-strong {
-    font-size: large;
-    font-family: sans-serif;
-    font-weight: 400;
-    color: #ffec90;
-}
-
-blockquote {
-    font-size: large;
-    font-family: sans-serif;
-    font-style: italic;
-    text-align: justify;
-    hyphens: auto;
-    border-left: 2px solid white;
-    margin: 10px 40px;
-    padding: 4px 10px;
-}
-cite{
-    display: block;
-    font-size:smaller;
-    font-style: normal;
-    padding-top: 0.5em;
-}
-cite:before{
-    content: '\2015';
 }
 
 body {
     height: 100%;
-    max-width: 900px;
+/*    max-width: 900px;*/
     margin: 0 auto;
-    color: #ddd;
+    color: var(--tcolor);
+    font-size: 22px;
 }
+
 
 header#name-banner {
     /*    min-height: 2.5em;*/
@@ -74,9 +42,10 @@ header#name-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
-    background-color: #000;
-    color: #aaa;
+    padding: 0 2%;
+    background: inherit;
+    background-color: var(--bcolor);
+    color: var(--htcolor);
     z-index: 100;
 }
 
@@ -85,31 +54,48 @@ ul.social {
     line-height: 1.5em;
     margin-top: 1.25em;
 }
-
 ul.social li {
     display: inline;
 }
+ul.social li a {
+    padding: 1em;
+}
+
+span#whichknauft {
+    display: block;
+    float: right;
+    color: var(--acolor);
+}
+.rollup {    position: relative;
+/*        animation: slidein calc(var(--yoff)*1ms) ease-in-out, spin calc(var(--yoff)*1ms) linear;*/
+}
+@keyframes slidein {
+    from {        top: calc(var(--yoff)*1px);        left: -2em;    }
+    to {        top: 0px;        left: 0px;    }
+}
+@keyframes spin {
+    from {        transform: rotate(-90deg);    }
+    to {        transform: rotate(0deg);    }
+}
+
+
 
 #descriptions {
     height: 100%;
+
 }
 
 #descriptions article {
     min-height: 100%;
-    padding: 15em 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20em 2em;
+    background-color: var(--s1color);
 }
-
 #descriptions article:nth-of-type(2n) {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--s2color);
 }
 
-#intro {
-    display: flex;
-    align-items: center;
-}
-
-ul.projectgrid {
+.projectgrid{
+    --expanded: 2.5;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -118,119 +104,89 @@ ul.projectgrid {
     margin: 0;
 }
 
-.projectgrid > li {
-    width: 260px;
-    height: 300px;
+.projectentry{
+    width: calc(var(--bwidth)*1px);
+    height:calc(var(--bheight)*1px);
+/*    height: calc(var(--expanded)*1em);*/
+    transition: all 0.4s ease-in-out;
     margin: 10px;
-    padding: 0 20px;
-    background-size: 260px;
+    
+    background-size: calc(var(--bheight)*1px);
     background-position: bottom;
     background-repeat: no-repeat;
-    background-color: #000;
     background-clip: padding-box;
-    border-radius: 0% 0% 25% 10%;
-    overflow: hidden;
+    
+    border-radius: 0 0 25% 10%;
+    overflow-y:auto;
+/*    overflow-y:hidden;*/
+    overflow-x:hidden;
+    background-color: var(--bcolor);
+}
+/*
+.projectentry:hover{
+    height: calc(var(--bheight)*1px);
+    transition: height 0.2s ease-in-out;
+    overflow-y:auto;
+}
+*/
+.projectentry > *{
+    background-color: var(--bcolora);
+    margin:0;
+    padding:0 10px;
+}
+.projectdetail{
+}
+.projectdetail h1{
+/*    text-align: center;*/
+    margin:0;
+    padding: 0.5em 10px;
 }
 
-.projectgrid li h1 {
-    /*    background-color: #000;*/
-    text-align: center;
-    margin-top: 0.4em;
-}
 
-span#whichknauft {
-    display: block;
-    float: right;
-    color: #0080ff;
-}
-
-@keyframes slidein {
-    from {
-        top: calc(var(--yoff)*1px);
-        left: -2em;
-    }
-    to {
-        top: 0px;
-        left: 0px;
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(-90deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
-}
-
-.rollup {
-    position: relative;
-    /*    animation: slidein calc(var(--yoff)*1ms) ease-in-out, spin calc(var(--yoff)*1ms) linear;*/
-}
-
-#facepic {
-    height: 10em;
-    margin-right: 30px;
-}
-
+/* Resume */
 .resume {
     position: relative;
     float: left;
-    top: 1.3em;
-    flex: 0 0 260px;
-    /*grow shrink basis*/
-    width: 260px;
-    background-color: #0078c8;
-    padding: 2.75em 5px 10px 40px;
-    margin: 0 20px 0 10px;
+    top: 1.4em;
+    width: calc(var(--bwidth)*1px);
+    flex: 0 0 calc(var(--bwidth)*1px); /* grow shrink basis */
+    background-color: var(--rbcolor);
+    padding: 1.5em 5px 0px 40px;
     font-size: smaller;
 }
-
 .resume::before {
     position: absolute;
     top: 0;
-    /*    padding:0.3em;*/
     line-height: 2em;
     left: 0;
     right: 0;
-    background-color: #00243b;
+    background-color: var(--rhcolor);
     content: 'Resume (exc.)';
     text-align: center;
 }
-
 .resume-entry {
     text-indent: -35px;
 }
-
 .resume .year {
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
     padding-right: 3px;
     margin-right: 5px;
+    margin-left:-17px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
 }
-
-.pullback {
-    text-indent: -35px;
-}
-
 .resume .title {
     font-variant: small-caps;
-    font-size: larger;
 }
-
 .resume .location {
+    font-style: normal;
+}
+.resume .description {
     font-style: italic;
+    font-size: smaller;
 }
 
-.resume .description {}
 
-div.flex {
-    display: flex;
-    align-items: flex-start;
-    /*    flex-wrap: wrap;*/
-}
-
+/*GoodReads*/
 .gr_grid_container {
     /* customize grid container div here. eg: width: 500px; */
 }
@@ -243,12 +199,80 @@ div.flex {
     padding: 0px 0px;
     overflow: hidden;
 }
-.projectentry {
-    height:250px;
-    overflow-y:scroll;
-    overflow-x: hidden;
+
+
+
+
+a {
+}
+a:link{
+    color: #6BB2FF;
+}
+a:visited{
+    color: #6D73E8;
+}
+a:focus, a:hover{
+    color: #A76BFF;
+}
+a:active{
+    color: #69E8F5;
 }
 
+
+em {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--acolor);
+}
+
+strong {
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: 400;
+    color: var(--acolor);
+}
+
+blockquote {
+/*    font-size: 26px;*/
+    font-family: sans-serif;
+    font-style: italic;
+    text-align: justify;
+    hyphens: auto;
+    border-left: 2px solid white;
+    margin: 0;
+    padding: 0.5em 1em;
+}
+blockquote strong{
+    font-size:inherit;
+    color:#b1a464;
+}
+
+cite{
+    display: block;
+    font-size:smaller;
+    font-style: normal;
+    padding-top: 0.5em;
+}
+cite:before{
+    content: '\2015';
+}
 .uline {
     text-decoration: underline;
+}
+.pullback {
+    text-indent: -35px;
+}
+.flex {
+    display: flex;
+    align-items: flex-start;
+    /*    flex-wrap: wrap;*/
+}
+.moresides {
+    margin: 0 3em;
+}
+h1.projecttop {
+    background-color: var(--bcolora);
+    margin:0 0 -0.4em 0;/*Ahh man... there's got to be a better way.*/
+    padding:0;
+    width:calc(var(--bwidth)*1px);
 }
