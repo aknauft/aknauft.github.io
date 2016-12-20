@@ -62,8 +62,17 @@ $(function () {
         });
     });
     var n = Date.now();
+    
+    // LimSoup
+    $.getJSON("https://limsoup.blogspot.com/feeds/posts/default?alt=json-in-script&callback=?", function(posts){
+        $.each(posts.feed.entry, function(i, post){
+            $('#limsoup')
+                .append("("+(n-Date.parse(post.updated.$t))+") <a href='"+post.link[4].href+"'>"+ post.link[4].title + "</a></br>");
+        })
+    })
+    
     // MathToast
-    feednami.setPublicApiKey('ff88f4123e50c479875ca1231eed83e43af401af915fb434a15962b5ea5ff45a');
+    feednami.setPublicApiKey('5e733fccd3b4538a67e4c746df862bdfbcd3fb1e83325997735340a4d39a2334');
     feednami.load('http://mathtoast.tumblr.com/rss')
     .then(feed => {
         $.each(feed.entries, function(i, entry){
@@ -72,19 +81,10 @@ $(function () {
   });
     
     // Repository
-    feednami.setPublicApiKey('4d1bc6511f8b90a0ade0fdb661cb108b77e7577e615ee6ee64e6e169df11902d');
     feednami.load("https://raindrop.io/collection/1944718/feed")
         .then(function(feed){
         $.each(feed.entries, function(i, entry){
             $('#repository').append("<dd>("+(n-entry.date_ms)+") <a href='"+entry.link+"'>"+entry.title+"</a></dd>");
         });
     });    
-    
-    // LimSoup
-    $.getJSON("http://blog.amathknauft.com/feeds/posts/default?alt=json-in-script&callback=?", function(posts){
-        $.each(posts.feed.entry, function(i, post){
-            $('#limsoup')
-                .append("("+Date.parse(post.updated.$t)+") <a href='"+post.link[4].href+"'>"+ post.link[4].title + "</a></br>");
-        })
-    })
 });
