@@ -33,6 +33,8 @@ function updateHeader() {
                     named.html(this.id === "intro" ? "" : this.id);
                     named.attr("style", "--yoff:" + Math.max(100,elemTop));
                     named.addClass("rollup");
+                    
+                    history.pushState({},"A "+this.id+" Knauft","#"+this.id);
         }
     })
 }
