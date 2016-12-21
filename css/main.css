@@ -11,8 +11,8 @@ html {
     --rhcolor: #002034;
     --rbcolor: #0078c8;
     
-    --bwidth: 260;
-    --bheight: 300;
+    --bwidth: 300;
+    --bheight: 320;
     
     box-sizing: border-box;
     height: 100%;
@@ -47,6 +47,7 @@ header#name-banner {
     background-color: var(--bcolor);
     color: var(--htcolor);
     z-index: 100;
+    border-bottom: 2px solid black; /*Or get a darker blue*/
 }
 
 ul.social {
@@ -141,6 +142,12 @@ span#whichknauft {
     margin:0;
     padding: 0.5em 10px;
 }
+h1.projecttop {
+    background-color: var(--bcolora);
+    margin:0 0 -0.4em 0;/*Ahh man... there's got to be a better way.*/
+    padding:15px 10px 0 10px;
+    width:calc(var(--bwidth)*1px);
+}
 
 
 /* Resume */
@@ -148,8 +155,8 @@ span#whichknauft {
     position: relative;
     float: left;
     top: 1.4em;
-    width: calc(var(--bwidth)*1px);
-    flex: 0 0 calc(var(--bwidth)*1px); /* grow shrink basis */
+    width: calc(var(--bwidth)*1.1px);
+    flex: 0 0 calc(var(--bwidth)*1.1px); /* grow shrink basis */
     background-color: var(--rbcolor);
     padding: 1.5em 5px 0px 40px;
     font-size: smaller;
@@ -269,10 +276,4 @@ cite:before{
 }
 .moresides {
     margin: 0 3em;
-}
-h1.projecttop {
-    background-color: var(--bcolora);
-    margin:0 0 -0.4em 0;/*Ahh man... there's got to be a better way.*/
-    padding:0;
-    width:calc(var(--bwidth)*1px);
 }
