@@ -1,4 +1,4 @@
-// From Underscore.js
+// From Underscore.js:
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -23,20 +23,19 @@ function debounce(func, wait, immediate) {
 
 function updateHeader() {
     var named = $("#whichknauft");
-    named.removeClass("rollup");
     var name = named.html();
+    
     $(".whichknauft").each(function () {
             var elemTop = this.getBoundingClientRect().top + parseFloat(window.getComputedStyle(this).paddingTop);
             var elemBottom = this.getBoundingClientRect().bottom;
             if (((0<elemTop) && (elemTop <= window.innerHeight)) || 
-                ((0<elemBottom) && (elemBottom <= window.innerHeight)) && this.id !== named.html()) {
-                    named.html(this.id === "intro" ? "" : this.id);
+                ((0<elemBottom) && (elemTop <= window.innerHeight)) && this.id !== named.html()) {
+                    named.html(this.id === "intro" ? "ndrew" : "&nbsp;"+this.id);
                     named.attr("style", "--yoff:" + Math.max(100,elemTop));
-                    named.addClass("rollup");
                     
                     history.pushState({},"A "+this.id+" Knauft","#"+this.id);
         }
-    })
+    });
 }
 
 $(function () {
@@ -60,26 +59,6 @@ $(function () {
         $.each(posts.items, function(i, post){
             $('#limsoup')
                 .append("("+(n-Date.parse(post.published))+") <a href='"+post.url+"'>"+ post.title + "</a></br>");
-        })
-    })
-    
- /*
-    // MathToast
-    feednami.setPublicApiKey('5e733fccd3b4538a67e4c746df862bdfbcd3fb1e83325997735340a4d39a2334'); 
-    feednami.load('http://mathtoast.tumblr.com/rss')
-    .then(feed => {
-        $.each(feed.entries, function(i, entry){
-            $('#mathtoast').append("("+(n-entry.date_ms)+") <a href='"+entry.link+"'>"+entry.title+"</a><br>");
         });
-  });
- */   
- /*
-    // Repository
-    feednami.load("https://raindrop.io/collection/1944718/feed")
-        .then(function(feed){
-        $.each(feed.entries, function(i, entry){
-            $('#repository').append("<dd>("+(n-entry.date_ms)+") <a href='"+entry.link+"'>"+entry.title+"</a></dd>");
-        });
-    });    
-*/
+    });
 });

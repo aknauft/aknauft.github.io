@@ -1,6 +1,6 @@
 html {
-    --bcolor: rgb(39, 55, 71);
-    --bcolora: rgba(39, 55, 71,0.8);
+    --bcolor: rgb(40, 56, 72);
+    --bcolora: rgba(40, 45, 72,0.8);
     --acolor: rgb(255, 236, 144) ;
     
     --s1color: rgba(0, 0, 0, 0.8);
@@ -27,10 +27,10 @@ html {
 
 body {
     height: 100%;
-/*    max-width: 900px;*/
+    max-width: 1080px;
     margin: 0 auto;
     color: var(--tcolor);
-    font-size: 22px;
+    font-size: 18px;
 }
 
 
@@ -46,6 +46,7 @@ header#name-banner {
     background: inherit;
     background-color: var(--bcolor);
     color: var(--htcolor);
+    font-size: 22px;
     z-index: 100;
     border-bottom: 2px solid black; /*Or get a darker blue*/
 }
@@ -67,28 +68,24 @@ span#whichknauft {
     float: right;
     color: var(--acolor);
 }
-.rollup {    position: relative;
-/*        animation: slidein calc(var(--yoff)*1ms) ease-in-out, spin calc(var(--yoff)*1ms) linear;*/
+
+article h1{
+    margin-top:-2em;
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight:100;
+    color: var(--acolor);
 }
-@keyframes slidein {
-    from {        top: calc(var(--yoff)*1px);        left: -2em;    }
-    to {        top: 0px;        left: 0px;    }
-}
-@keyframes spin {
-    from {        transform: rotate(-90deg);    }
-    to {        transform: rotate(0deg);    }
-}
+
 
 
 
 #descriptions {
     height: 100%;
-
 }
-
 #descriptions article {
-    min-height: 100%;
-    padding: 20em 2em;
+    min-height: 800px;/*100%;*/
+    padding: 10em 2em;
     background-color: var(--s1color);
 }
 #descriptions article:nth-of-type(2n) {
@@ -109,7 +106,7 @@ span#whichknauft {
     width: calc(var(--bwidth)*1px);
     height:calc(var(--bheight)*1px);
 /*    height: calc(var(--expanded)*1em);*/
-    transition: all 0.4s ease-in-out;
+/*    transition: all 0.4s ease-in-out;*/
     margin: 10px;
     
     background-size: calc(var(--bheight)*1px);
@@ -117,9 +114,8 @@ span#whichknauft {
     background-repeat: no-repeat;
     background-clip: padding-box;
     
-    border-radius: 0 0 25% 10%;
-    overflow-y:auto;
-/*    overflow-y:hidden;*/
+    border-radius: 2% 2% 25% 10%;
+    overflow-y:auto;/*hidden*/
     overflow-x:hidden;
     background-color: var(--bcolor);
 }
@@ -135,14 +131,13 @@ span#whichknauft {
     margin:0;
     padding:0 10px;
 }
-.projectdetail{
-}
-.projectdetail h1{
+.projectdetail h2{
 /*    text-align: center;*/
     margin:0;
     padding: 0.5em 10px;
+    font-size: 1em;
 }
-h1.projecttop {
+h2.projecttop {
     background-color: var(--bcolora);
     margin:0 0 -0.4em 0;/*Ahh man... there's got to be a better way.*/
     padding:15px 10px 0 10px;
@@ -227,20 +222,20 @@ a:active{
 
 
 em {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 400;
     color: var(--acolor);
 }
 
 strong {
-    font-size: 28px;
+    font-size: 22px;
     font-family: sans-serif;
     font-weight: 400;
     color: var(--acolor);
 }
 
 blockquote {
-/*    font-size: 26px;*/
+    font-size: 22px;
     font-family: sans-serif;
     font-style: italic;
     text-align: justify;
@@ -272,8 +267,13 @@ cite:before{
 .flex {
     display: flex;
     align-items: flex-start;
-    /*    flex-wrap: wrap;*/
+/*        flex-wrap: wrap;*/
 }
 .moresides {
     margin: 0 3em;
 }
+
+
+
+
+
