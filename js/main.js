@@ -47,7 +47,7 @@ $(function () {
     $.getJSON("https://api.github.com/repos/aknauft/30-list/issues?state=open&sort=updated", function (issues) {
         $.each(issues, function (i, issue) {
             $('#30-list')
-                .append("("+issue.number+") <a href='"+issue.html_url+"'>"+ issue.title + "</a></br>");
+                .append("<dd>("+issue.number+") <a href='"+issue.html_url+"'>"+ issue.title + "</a></dd>");
 //                .append("created at: " + issue.created_at + "</br>");
 //                .append(issue.body + "</br></br></br>");
         });
