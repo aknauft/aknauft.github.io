@@ -100,6 +100,7 @@ article h1{
     justify-content: center;
     padding: 0;
     margin: 0;
+    clear:both;
 }
 
 .projectentry{
@@ -130,12 +131,15 @@ article h1{
     background-color: var(--bcolora);
     margin:0;
     padding:0 10px;
+    font-weight: 200;
+    font-family: sans-serif;
 }
+
 .projectdetail h2{
 /*    text-align: center;*/
     margin:0;
     padding: 0.5em 10px;
-    font-size: 1em;
+    font-size: 1.25em;
 }
 h2.projecttop {
     background-color: var(--bcolora);
@@ -149,7 +153,7 @@ h2.projecttop {
 .resume {
     position: relative;
     float: left;
-    top: 1.4em;
+    top: -1.4em;
     width: calc(var(--bwidth)*1.1px);
     flex: 0 0 calc(var(--bwidth)*1.1px); /* grow shrink basis */
     background-color: var(--rbcolor);
@@ -168,6 +172,8 @@ h2.projecttop {
 }
 .resume-entry {
     text-indent: -35px;
+    padding-bottom: 8px;
+/*    border-bottom: 2px solid var(--tcolor);*/
 }
 .resume .year {
     padding-right: 3px;
@@ -266,12 +272,14 @@ cite:before{
 }
 .flex {
     display: flex;
-    align-items: flex-start;
-/*        flex-wrap: wrap;*/
+    justify-content: center;
+    align-items: center;
 }
 .moresides {
     margin: 0 3em;
 }
+
+
 
 
 

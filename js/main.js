@@ -44,7 +44,7 @@ $(function () {
         .trigger("scroll");
     
     //30 list
-    $.getJSON("https://api.github.com/repos/aknauft/30-list/issues?state=all&sort=updated", function (issues) {
+    $.getJSON("https://api.github.com/repos/aknauft/30-list/issues?state=open&sort=updated", function (issues) {
         $.each(issues, function (i, issue) {
             $('#30-list')
                 .append("("+issue.number+") <a href='"+issue.html_url+"'>"+ issue.title + "</a></br>");
@@ -52,13 +52,15 @@ $(function () {
 //                .append(issue.body + "</br></br></br>");
         });
     });
-    var n = Date.now();
     
     // LimSoup, following the blogger api
     $.getJSON("https://www.googleapis.com/blogger/v3/blogs/1347215485435204892/posts?key=AIzaSyBO--k--KWPFryloQTSD_lmqUBi3RUBpew&callback=?", function(posts){
         $.each(posts.items, function(i, post){
-            $('#limsoup')
-                .append("("+(n-Date.parse(post.published))+") <a href='"+post.url+"'>"+ post.title + "</a></br>");
+            if(i < 5){ // Only pull in the five most recent
+                var d = new Date(post.published);
+                $('#limsoup')
+                    .append("<dd>("+d.toDateString()+") <a href='"+post.url+"'>"+ post.title + "</a></dd>");
+            }
         });
     });
 });
