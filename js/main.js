@@ -63,4 +63,19 @@ $(function () {
             }
         });
     });
+    
+    // Smooth Scroll, from https://css-tricks.com/snippets/jquery/smooth-scrolling/
+    // Hey, Andrew, come back to this and build it yourself! You don't need most of the logic here.
+    $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 });
