@@ -33,7 +33,7 @@ function updateHeader() {
                     named.html(this.id === "intro" ? "ndrew" : "&nbsp;"+this.id);
                     named.attr("style", "--yoff:" + Math.max(100,elemTop));
                     
-                    history.pushState({},"A "+this.id+" Knauft","#"+this.id);
+                    //history.pushState({},"A "+this.id+" Knauft","#"+this.id); // Useful when not scrolling, but could be annoying.
         }
     });
 }
@@ -58,8 +58,8 @@ $(function () {
         $.each(posts.items, function(i, post){
             if(i < 5){ // Only pull in the five most recent
                 var d = new Date(post.published);
-                $('#limsoup')
-                    .append("<dd>("+d.toDateString()+") <a href='"+post.url+"'>"+ post.title + "</a></dd>");
+                $('#limsoup') // At some point, get a nicer date format.
+                    .append("<dd><a href='"+post.url+"'>"+d.toDateString()+"</a> "+ post.title + "</dd>");
             }
         });
     });
